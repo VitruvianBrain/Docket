@@ -1,6 +1,6 @@
 # Docket
 
-Your reading list, with a court date. Save it, read it offline, and decide by Sunday. By AR.
+Your reading list, with a date. Save it, read it offline, and decide by Sunday. By AR.
 
 ## Install (2 minutes)
 1. Unzip the folder.
