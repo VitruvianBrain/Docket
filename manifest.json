@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Docket",
+  "version": "1.0.0",
+  "description": "Your reading list, with a court date. Read it later, offline. By AR.",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": {
+    "default_title": "Save to Docket",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["storage", "unlimitedStorage", "scripting", "alarms", "notifications", "offscreen", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "commands": {
+    "save-page": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Save this page to Docket"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data:"
+  }
+}

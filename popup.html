@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Docket</title>
+  <script src="platform.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup">
+  <div class="head"><h1>Docket</h1><span>by AR</span></div>
+  <button id="save" class="btn-fill">Save this page</button>
+  <p id="msg" class="note"></p>
+  <div id="preview"></div>
+  <div class="group stats">
+    <div><b id="s-wait">0</b><span>on docket</span></div>
+    <div class="hot"><b id="s-dying">0</b><span>due Sunday</span></div>
+    <div><b id="s-buried">0</b><span>dismissed</span></div>
+  </div>
+  <div class="group open"><a class="cell" id="open" href="#"><span>Open Docket</span><span id="chev"></span></a></div>
+  <div class="kbd">Alt+Shift+S saves any page</div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
