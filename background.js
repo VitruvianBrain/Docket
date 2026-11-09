@@ -2,6 +2,7 @@ import * as store from './lib/store.js';
 import { isWeekend, decideNotification } from './lib/time.js';
 
 const LIBRARY = chrome.runtime.getURL('library.html');
+const ISSUE = chrome.runtime.getURL('issue.html');
 
 // ---------- Save pipeline ----------
 async function ensureOffscreen() {
@@ -76,7 +77,7 @@ chrome.alarms.onAlarm.addListener(a => { if (a.name === 'tick') tick(); });
 chrome.storage.onChanged.addListener((ch, area) => { if (area === 'local' && ch.items) updateBadge(); });
 
 chrome.notifications.onClicked.addListener(id => {
-  if (id.startsWith('docket-')) { chrome.tabs.create({ url: LIBRARY }); chrome.notifications.clear(id); }
+  if (id.startsWith('docket-')) { chrome.tabs.create({ url: id === 'docket-sat' ? ISSUE : LIBRARY }); chrome.notifications.clear(id); }
 });
 
 chrome.commands.onCommand.addListener(async cmd => {

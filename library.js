@@ -1,5 +1,5 @@
 import * as store from './lib/store.js';
-import { computeStats, fmtLeft, fmtDie, endOfSunday, fmtDate } from './lib/time.js';
+import { computeStats, fmtLeft, fmtDie, endOfSunday, fmtDate, buildIssue, fmtHours } from './lib/time.js';
 import { h, icon, toast, openMenu } from './lib/ui.js';
 import { attachSwipe } from './lib/swipe.js';
 
@@ -236,9 +236,22 @@ async function importBackup(e) {
 }
 
 // ---------- boot ----------
+function renderIssueLink(items) {
+  const iss = buildIssue(items);
+  const a = $('issuelink');
+  a.hidden = !iss.count;
+  if (!iss.count) return;
+  const weekend = [0, 6].includes(new Date().getDay());
+  a.replaceChildren(icon('book'),
+    h('span', { class: 'grow' }, h('b', {}, weekend ? 'This weekend’s issue' : 'Weekend Issue'),
+      h('small', {}, `${iss.count} ${iss.count === 1 ? 'article' : 'articles'} · ${fmtHours(iss.minutes)}${weekend ? '' : ' · opens Saturday, preview now'}`)),
+    icon('chevR'));
+}
+
 async function render() {
   const items = await store.getItems();
   renderTiles(items);
+  renderIssueLink(items);
   renderPills(items);
   await renderList();
   await renderSettings();

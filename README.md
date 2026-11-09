@@ -2,16 +2,10 @@
 
 Your reading list, with a court date. Save it, read it offline, and decide by Sunday. By AR.
 
-A read-it-later Chrome extension. Free, no account, nothing leaves your computer.
-
-<p align="center"><img src="docs/library-phone.png" width="240"> <img src="docs/swipe.png" width="240"> <img src="docs/reader-phone.png" width="240"></p>
-
-**Why another one?** Most read-it-later apps let your list grow forever. Docket gives every article a court date: read it, adjourn it a week, or dismiss it by Sunday.
-
 ## Install (2 minutes)
-1. Click **Code → Download ZIP** on this page and unzip it (or `git clone` it).
+1. Unzip the folder.
 2. Open `chrome://extensions` and switch on **Developer mode** (top right).
-3. Click **Load unpacked** and choose the unzipped folder (the one containing `manifest.json`).
+3. Click **Load unpacked** and choose the `docket` folder.
 4. Pin the Docket icon to the toolbar.
 
 ## Use
@@ -31,8 +25,11 @@ Source and site icon, author(s), published and updated dates, section, tags, sum
 ## The Sunday Hearing
 An article stays on the docket at least 7 days (setting: 7/10/14), then comes up for hearing at the end of the next Sunday. Anything you have not dealt with is dismissed: its text is deleted and only the title and original link remain in the Dismissed tab. "Adjourn a week" pushes the hearing to the following Sunday.
 
+## Weekend Issue
+Your docket, laid out like a magazine: a cover story, what is due Sunday, quick reads (5 minutes or less) and longer reads, with the total reading time at the top. The Saturday notification opens it, and the **Weekend Issue** row on the list page opens it any day. It is built from what is on your docket right now.
+
 ## Weekend nudge
-- Saturday at your chosen time: "N articles on your docket · X due Sunday night · Y dismissed this month".
+- Saturday at your chosen time: "N articles on your docket · Your Weekend Issue is ready · X due Sunday night". Click it to open the issue.
 - Sunday 18:00: only if something is due tonight.
 - Weekdays: silence. The toolbar badge shows the Sunday count on weekends only.
 - Chrome must be open. If it was closed, the check runs the next time you open it.
@@ -60,6 +57,3 @@ The layout is phone-first (swipe right = Finished, swipe left = Adjourn or Dismi
 - Up to 15 images per article, each shrunk to 1000px wide.
 - Videos, embeds and interactive charts are not saved.
 - Pages that are not articles (dashboards, apps) may be rejected with "No article found".
-
-## Licence
-MIT. Bundled fonts keep their own licences (SIL OFL) in `fonts/`. Readability.js is Apache-2.0 (Mozilla).
